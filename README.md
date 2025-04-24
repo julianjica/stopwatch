@@ -9,7 +9,7 @@ A simple terminal stopwatch script that logs elapsed time and task descriptions 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/stopwatch-logger.git
+   git clone https://github.com/julianjica/stopwatch
    cd stopwatch-logger
    ```
 
@@ -35,6 +35,7 @@ You can start the stopwatch in two ways:
 ./stopwatch_logger.sh
 ```
 You'll be prompted to enter a task name.
+Feel free to set an alias for this command!
 
 ---
 
