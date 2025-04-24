@@ -3,6 +3,7 @@ from dash import dcc, html  # Directly import from dash
 import plotly.graph_objs as go
 import pandas as pd
 from dash.dependencies import Input, Output
+import subprocess
 
 # Load the categorized tasks data from CSV
 df = pd.read_csv("categorized_data.csv")
@@ -92,4 +93,6 @@ def update_task_time_graph(selected_category):
 
 # Run the Dash app
 if __name__ == '__main__':
+    # Run another script and wait for it to finish
+    subprocess.run(['python', 'categorize_tasks.py'])
     app.run(debug=True)
