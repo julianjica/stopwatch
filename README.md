@@ -1,6 +1,6 @@
 # ⏱️ Stopwatch Logger
 
-A simple terminal stopwatch script that logs elapsed time and task descriptions to a CSV file.
+A simple terminal stopwatch script that logs elapsed time and task descriptions to a CSV file — using `termdown` if available, or falling back to a built-in mode if not.
 
 ---
 
@@ -10,13 +10,19 @@ A simple terminal stopwatch script that logs elapsed time and task descriptions 
 
    ```bash
    git clone https://github.com/julianjica/stopwatch
-   cd stopwatch-logger
+   cd stopwatch
    ```
 
 2. Make the script executable:
 
    ```bash
    chmod +x stopwatch_logger.sh
+   ```
+
+3. *(Optional)* Install `termdown` for enhanced stopwatch display:
+
+   ```bash
+   pip install termdown
    ```
 
 ---
@@ -35,17 +41,39 @@ You can start the stopwatch in two ways:
 ./stopwatch_logger.sh
 ```
 You'll be prompted to enter a task name.
-Feel free to set an alias for this command!
+
+---
+
+## 🔁 How It Works
+
+- If `termdown` is installed, it runs in stopwatch mode. You can stop it by pressing `q`.
+- If `termdown` is **not** installed, it falls back to a minimal mode — just press `q` then `Enter` to stop the timer.
+- The elapsed time and task are logged to a CSV file automatically.
 
 ---
 
 ## 📝 Output
 
-Each session is logged in a `data.csv` file in the format:
+Each session is logged in a `data.csv` file (in the same directory as the script) in the format:
 
 ```csv
 Date and Time,Task Name,Elapsed Time
 2025-04-24 14:33:00,Practice tennis,00:45:12
+```
+
+---
+
+## 💡 Tip
+
+You can set an alias in your shell config to call the script more easily:
+
+```bash
+alias stopwatch="~/path/to/stopwatch_logger.sh"
+```
+
+Now just run:
+```bash
+stopwatch "Reading"
 ```
 
 ---
