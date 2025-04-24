@@ -78,7 +78,10 @@ def save_tasks_with_categories(input_csv, output_csv, categorized_tasks):
         reader = csv.reader(infile)
         writer = csv.writer(outfile)
 
-        
+        # Write the header to the new file (manual headers)
+        header = ['Date and Time', 'Task Name', 'Elapsed Time', 'Category']
+        writer.writerow(header)
+
         # Write data with categories
         for row in reader:
             task = row[1]
