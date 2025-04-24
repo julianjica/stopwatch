@@ -16,7 +16,7 @@ A simple terminal stopwatch script that logs elapsed time and task descriptions 
 2. Make the script executable:
 
    ```bash
-   chmod +x stopwatch_logger.sh
+   chmod +x stopwatch.sh
    ```
 
 3. *(Optional)* Install `termdown` for enhanced stopwatch display:
@@ -39,12 +39,12 @@ You can start the stopwatch in two ways:
 
 ### ▶️ With a task name as an argument:
 ```bash
-./stopwatch_logger.sh "Practice tennis"
+./stopwatch.sh "Practice tennis"
 ```
 
 ### ✍️ Or interactively:
 ```bash
-./stopwatch_logger.sh
+./stopwatch.sh
 ```
 You'll be prompted to enter a task name.
 
@@ -90,7 +90,7 @@ A **dashboard** is available to visualize the time spent on each task and catego
 You can set an alias in your shell config to call the script more easily:
 
 ```bash
-alias stopwatch="~/path/to/stopwatch_logger.sh"
+alias stopwatch="~/path/to/stopwatch.sh"
 ```
 
 Now just run:
