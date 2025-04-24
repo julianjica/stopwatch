@@ -11,22 +11,34 @@ else
   task="$1"
 fi
 
-# Start stopwatch and save start time
+# Save start time
 start_time=$(date +%s)
 
-# Run termdown in stopwatch mode
-termdown
+# Check for termdown
+if command -v termdown &> /dev/null; then
+  termdown 
+else
+  echo "⚠️ 'termdown' not found. Using fallback mode."
+  echo "Press 'q' then Enter to stop the timer."
+  
+  while true; do
+    read -n1 -s key
+    if [[ "$key" == "q" ]]; then
+      break
+    fi
+  done
+fi
 
-# Get end time after Ctrl+C
+# Get end time
 end_time=$(date +%s)
 elapsed=$((end_time - start_time))
 
 # Format elapsed as hh:mm:ss
 formatted=$(printf "%02d:%02d:%02d" $((elapsed/3600)) $(((elapsed/60)%60)) $((elapsed%60)))
 
-# Log to CSV with task name and current timestamp
+# Get timestamp and log to CSV
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
 echo "$timestamp,$task,$formatted" >> "$LOG_FILE"
 
-echo "Logged: [$task] $formatted"
+echo -e "\n✅ Logged: [$task] $formatted"
 
