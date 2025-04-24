@@ -4,7 +4,7 @@ import json
 import ast
 
 # Your Gemini API key
-GEMINI_API_KEY = 'YOUR-GEMINI-API-KEY'
+GEMINI_API_KEY = 'YOUR-GEMINI-API'
 
 # The API endpoint for Gemini
 url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + GEMINI_API_KEY
@@ -19,7 +19,8 @@ def categorize_tasks(tasks):
         "contents": [
             {
                 "parts": [{"text": f"Identify at most 7 categories for the following tasks, and provide\
-                         the categories' names in a Python list in raw text (do not use special formatting).\
+                         the tasks and categories in a hashmap, where the keys are the tasks, and the \
+                         values are the categories (do not use special formatting).\
                           Avoid saying anything else:\n{tasks_prompt}"}]
             }
         ]
