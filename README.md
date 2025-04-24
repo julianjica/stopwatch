@@ -1,6 +1,6 @@
 # ⏱️ Stopwatch Logger
 
-A simple terminal stopwatch script that logs elapsed time and task descriptions to a CSV file — using `termdown` if available, or falling back to a built-in mode if not.
+A simple terminal stopwatch script that logs elapsed time and task descriptions to a CSV file — using `termdown` if available, or falling back to a built-in mode if not. Additionally, a **dashboard** is provided to visualize the time spent on tasks and categories.
 
 ---
 
@@ -23,6 +23,12 @@ A simple terminal stopwatch script that logs elapsed time and task descriptions 
 
    ```bash
    pip install termdown
+   ```
+
+4. Install the necessary Python dependencies:
+
+   ```bash
+   pip install -r requirements.txt
    ```
 
 ---
@@ -63,6 +69,22 @@ Date and Time,Task Name,Elapsed Time
 
 ---
 
+## 📊 Interactive Dashboard
+
+A **dashboard** is available to visualize the time spent on each task and category. The dashboard is built using Dash, and you can explore your tasks interactively.
+
+### ▶️ To launch the dashboard:
+
+1. Run the `dashboard.py` script:
+
+   ```bash
+   python dashboard.py
+   ```
+
+2. Open the link provided in the terminal (usually `http://127.0.0.1:8050/`) in your web browser to access the dashboard.
+
+---
+
 ## 💡 Tip
 
 You can set an alias in your shell config to call the script more easily:
@@ -75,5 +97,3 @@ Now just run:
 ```bash
 stopwatch "Reading"
 ```
-
----
