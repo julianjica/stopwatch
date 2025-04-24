@@ -73,8 +73,29 @@ def categorize_all_tasks(csv_path):
     else:
         print("\nNo categorization response received.")
 
+def save_tasks_with_categories(input_csv, output_csv, categorized_tasks):
+    with open(input_csv, newline='') as infile, open(output_csv, mode='w', newline='') as outfile:
+        reader = csv.reader(infile)
+        writer = csv.writer(outfile)
+
+        
+        # Write data with categories
+        for row in reader:
+            task = row[1]
+            category = categorized_tasks.get(task, "Uncategorized")  # Default to "Uncategorized" if no match
+            row.append(category)
+            writer.writerow(row)
+
 # Main execution
 if __name__ == "__main__":
-    path = "data.csv"  
-    categorize_all_tasks(path)
+    input_path = "data.csv"  # Path to your original CSV file
+    output_path = "categorized_data.csv"  # Path to save the new CSV with categories
+
+    # Categorize tasks and get the results
+    categorized_tasks = categorize_all_tasks(input_path)
+
+    if categorized_tasks:
+        # Save tasks with their respective categories into a new CSV
+        save_tasks_with_categories(input_path, output_path, categorized_tasks)
+        print(f"\nThe tasks with categories have been saved to '{output_path}'.")
 
