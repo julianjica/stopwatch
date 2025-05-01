@@ -1,6 +1,6 @@
 # ⏱️ Stopwatch Logger
 
-A simple terminal stopwatch script that logs elapsed time and task descriptions to a CSV file — using `termdown` if available, or falling back to a built-in mode if not. Additionally, a **dashboard** is provided to visualize the time spent on tasks and categories.
+A simple terminal stopwatch script that logs elapsed time and task descriptions to a CSV file — using `termdown` if available, or falling back to a built-in mode if not. Additionally, a **terminal dashboard** is provided to visualize the time spent on tasks and categories.
 
 ---
 
@@ -69,19 +69,35 @@ Date and Time,Task Name,Elapsed Time
 
 ---
 
-## 📊 Interactive Dashboard
+## 🧠 Categorizing Tasks with Gemini API
 
-A **dashboard** is available to visualize the time spent on each task and category. The dashboard is built using Dash, and you can explore your tasks interactively.
+To categorize tasks automatically using Google Gemini, run:
 
-### ▶️ To launch the dashboard:
+```bash
+python categorize_tasks.py
+```
 
-1. Run the `dashboard.py` script:
+This script will:
+- Use the Gemini API to analyze all task names in `data.csv`
+- Assign them to relevant categories
+- Save a new file called `categorized_data.csv` with an additional `Category` column
 
-   ```bash
-   python dashboard.py
-   ```
+Make sure to set your Gemini API key in the script before running it.
 
-2. Open the link provided in the terminal (usually `http://127.0.0.1:8050/`) in your web browser to access the dashboard.
+---
+
+## 📊 Terminal Dashboard
+
+A **terminal dashboard** is available to explore how your time is distributed across tasks and categories. It provides an interactive experience directly in the terminal using the `rich` library.
+
+### ▶️ To launch the terminal dashboard:
+
+```bash
+python terminal_dashboard.py
+```
+
+- View total time per category
+- Select a category to see detailed tasks and durations
 
 ---
 
@@ -97,3 +113,4 @@ Now just run:
 ```bash
 stopwatch "Reading"
 ```
+
